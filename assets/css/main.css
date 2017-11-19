@@ -339,13 +339,13 @@
 		-ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
-		color: #1cb495;
+		color: #663066;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #1cb495 !important;
+			color: #663066 !important;
 			text-decoration: none;
 		}
 
@@ -360,6 +360,7 @@
 
 	p {
 		margin: 0 0 2em 0;
+		font-family: "montserrat-regular", sans-serif;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -377,11 +378,13 @@
 	h1 {
 		font-size: 2.5em;
 		line-height: 1.25em;
+		font-family: "montserrat-bold", sans-serif;
 	}
 
 	h2 {
 		font-size: 1.75em;
 		line-height: 1.5em;
+		font-family: "montserrat-regular", sans-serif;
 	}
 
 	h3 {
@@ -622,7 +625,7 @@
 			}
 
 			form .message.success {
-				color: #1cb495;
+				color: #663066;
 			}
 
 				form .message.success:before {
@@ -784,7 +787,7 @@
 			-ms-animation: focus 0.1s;
 			animation: focus 0.1s;
 			background-color: rgba(255, 255, 255, 0.125);
-			border-color: #1cb495;
+			border-color: #663066;
 		}
 
 	.select-wrapper {
@@ -886,16 +889,16 @@
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #1cb495;
-			border-color: #1cb495;
+			background: #663066;
+			border-color: #663066;
 			color: #ffffff;
 			content: '\f00c';
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #1cb495;
-			box-shadow: 0 0 0 2px #1cb495;
+			border-color: #663066;
+			box-shadow: 0 0 0 2px #663066;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -946,7 +949,7 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-		background-color: #1cb495;
+		background-color: #663066;
 		border-radius: 6px;
 		border: 0;
 		color: #ffffff !important;
@@ -959,6 +962,7 @@
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
+		font-family: "montserrat-regular", sans-serif;
 	}
 
 		input[type="submit"]:hover,
@@ -966,7 +970,7 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #1fcaa7;
+			background-color: #472047;
 		}
 
 		input[type="submit"]:active,
