@@ -1,8 +1,4 @@
-/*
-	Eventually by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 (function() {
 
@@ -21,6 +17,28 @@
 
 	// Vars.
 		var	$body = document.querySelector('body');
+		var $contactForm = $('#contact-form');
+
+$contactForm.submit(function(e) {
+	e.preventDefault();
+	$.ajax({
+		url: '//formspree.io/gosauerapple@gmail.com',
+		method: 'POST',
+		data: $(this).serialize(),
+		dataType: 'json',
+		beforeSend: function() {
+			$contactForm.append('<div class="alert alert--loading">Sending message…</div>');
+		},
+		success: function(data) {
+			$contactForm.find('.alert--loading').hide();
+			$contactForm.append('<div class="alert alert--success">Message sent!</div>');
+		},
+		error: function(err) {
+			$contactForm.find('.alert--loading').hide();
+			$contactForm.append('<div class="alert alert--error">Ops, there was an error.</div>');
+		}
+	});
+
 
 	// Disable animations/transitions until everything's loaded.
 		$body.classList.add('is-loading');
