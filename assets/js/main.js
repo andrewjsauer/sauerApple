@@ -1,4 +1,8 @@
-
+/*
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
 (function() {
 
@@ -17,28 +21,6 @@
 
 	// Vars.
 		var	$body = document.querySelector('body');
-		var $contactForm = $('#contact-form');
-
-$contactForm.submit(function(e) {
-	e.preventDefault();
-	$.ajax({
-		url: '//formspree.io/gosauerapple@gmail.com',
-		method: 'POST',
-		data: $(this).serialize(),
-		dataType: 'json',
-		beforeSend: function() {
-			$contactForm.append('<div class="alert alert--loading">Sending message…</div>');
-		},
-		success: function(data) {
-			$contactForm.find('.alert--loading').hide();
-			$contactForm.append('<div class="alert alert--success">Message sent!</div>');
-		},
-		error: function(err) {
-			$contactForm.find('.alert--loading').hide();
-			$contactForm.append('<div class="alert alert--error">Ops, there was an error.</div>');
-		}
-	});
-
 
 	// Disable animations/transitions until everything's loaded.
 		$body.classList.add('is-loading');
@@ -125,67 +107,93 @@ $contactForm.submit(function(e) {
 	// Signup Form.
 		(function() {
 
-			// Vars.
-				var $form = document.querySelectorAll('#signup-form')[0],
-					$submit = document.querySelectorAll('#signup-form input[type="submit"]')[0],
-					$message;
+						var $contactForm = $('#contact-form');
 
-			// Bail if addEventListener isn't supported.
-				if (!('addEventListener' in $form))
-					return;
 
-			// Message.
-				$message = document.createElement('span');
-					$message.classList.add('message');
-					$form.appendChild($message);
 
-				$message._show = function(type, text) {
+					$contactForm.submit(function(e) {
+					e.preventDefault();
+					$.ajax({
+						url: '//formspree.io/gosauerapple@gmail.com',
+						method: 'POST',
+						data: $(this).serialize(),
+						dataType: 'json',
+						beforeSend: function() {
+							$contactForm.append('<div class="alert alert--loading">Sending message…</div>');
+						},
 
-					$message.innerHTML = text;
-					$message.classList.add(type);
-					$message.classList.add('visible');
+						success: function(data) {
+							$contactForm.find('.alert--loading').hide();
+							$contactForm.append('<div class="alert alert--success">Message sent!</div>');
+						},
 
-					window.setTimeout(function() {
-						$message._hide();
-					}, 3000);
-
-				};
-
-				$message._hide = function() {
-					$message.classList.remove('visible');
-				};
-
-			// Events.
-			// Note: If you're *not* using AJAX, get rid of this event listener.
-				$form.addEventListener('submit', function(event) {
-
-					event.stopPropagation();
-					event.preventDefault();
-
-					// Hide message.
-						$message._hide();
-
-					// Disable submit.
-						$submit.disabled = true;
-
-					// Process form.
-					// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
-					// but there's enough here to piece together a working AJAX submission call that does.
-						window.setTimeout(function() {
-
-							// Reset form.
-								$form.reset();
-
-							// Enable submit.
-								$submit.disabled = false;
-
-							// Show message.
-								$message._show('success', 'Thank you!');
-								//$message._show('failure', 'Something went wrong. Please try again.');
-
-						}, 750);
-
-				});
+						error: function(err) {
+							$contactForm.find('.alert--loading').hide();
+							$contactForm.append('<div class="alert alert--error">Ops, there was an error.</div>');
+						}
+					});
+					})();
+			// // Vars.
+			// 	var $form = document.querySelectorAll('#signup-form')[0],
+			// 		$submit = document.querySelectorAll('#signup-form input[type="submit"]')[0],
+			// 		$message;
+			//
+			// // Bail if addEventListener isn't supported.
+			// 	if (!('addEventListener' in $form))
+			// 		return;
+			//
+			// // Message.
+			// 	$message = document.createElement('span');
+			// 		$message.classList.add('message');
+			// 		$form.appendChild($message);
+			//
+			// 	$message._show = function(type, text) {
+			//
+			// 		$message.innerHTML = text;
+			// 		$message.classList.add(type);
+			// 		$message.classList.add('visible');
+			//
+			// 		window.setTimeout(function() {
+			// 			$message._hide();
+			// 		}, 3000);
+			//
+			// 	};
+			//
+			// 	$message._hide = function() {
+			// 		$message.classList.remove('visible');
+			// 	};
+			//
+			// // Events.
+			// // Note: If you're *not* using AJAX, get rid of this event listener.
+			// 	$form.addEventListener('submit', function(event) {
+			//
+			// 		event.stopPropagation();
+			// 		event.preventDefault();
+			//
+			// 		// Hide message.
+			// 			$message._hide();
+			//
+			// 		// Disable submit.
+			// 			$submit.disabled = true;
+			//
+			// 		// Process form.
+			// 		// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
+			// 		// but there's enough here to piece together a working AJAX submission call that does.
+			// 			window.setTimeout(function() {
+			//
+			// 				// Reset form.
+			// 					$form.reset();
+			//
+			// 				// Enable submit.
+			// 					$submit.disabled = false;
+			//
+			// 				// Show message.
+			// 					$message._show('success', 'Thank you!');
+			// 					//$message._show('failure', 'Something went wrong. Please try again.');
+			//
+			// 			}, 750);
+			//
+			// 	});
 
 		})();
 
