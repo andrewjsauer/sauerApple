@@ -107,7 +107,7 @@
 	// Signup Form.
 		(function() {
 
-					var $contactForm = $('#signup-form');
+					var $contactForm = $('signup-form');
 
 					$contactForm.submit(function(e) {
 					e.preventDefault();
