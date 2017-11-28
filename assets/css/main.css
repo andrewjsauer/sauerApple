@@ -762,7 +762,7 @@
 		border: none;
 		border: solid 2px rgba(255, 255, 255, 0.35);
 		color: inherit;
-		display: inline-block;
+		display: block;
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
